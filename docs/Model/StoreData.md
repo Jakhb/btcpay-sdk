@@ -1,0 +1,47 @@
+# # StoreData
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**name** | **string** | The name of the store | [optional]
+**website** | **string** | The absolute url of the store | [optional]
+**support_url** | **string** | The support URI of the store, can contain the placeholders &#x60;{OrderId}&#x60; and &#x60;{InvoiceId}&#x60;. Can be any valid URI, such as a website, email, and nostr. | [optional]
+**logo_url** | **string** | Absolute URL to a logo file or a reference to an uploaded file id with &#x60;fileid:ID&#x60; | [optional]
+**css_url** | **string** | Absolute URL to CSS file to customize the public/customer-facing pages of the store. (Invoice, Payment Request, Pull Payment, etc.) or a reference to an uploaded file id with &#x60;fileid:ID&#x60; | [optional]
+**payment_sound_url** | **string** | Absolute URL to a sound file or a reference to an uploaded file id with &#x60;fileid:ID&#x60; | [optional]
+**brand_color** | **string** | The brand color of the store in HEX format | [optional]
+**apply_brand_color_to_backend** | **bool** | Apply the brand color to the store&#39;s backend as well | [optional] [default to false]
+**default_currency** | **string** | The default currency of the store | [optional] [default to 'USD']
+**additional_tracked_rates** | **string[]** | Additional rates to track. The rates of those currencies, in addition to the default currency, will be recorded when a new invoice is created. The rates will then be accessible through reports. | [optional]
+**invoice_expiration** | **mixed** | The time after which an invoice is considered expired if not paid. The value will be rounded down to a minute. | [optional]
+**refund_bolt11_expiration** | **mixed** | The minimum expiry of BOLT11 invoices accepted for refunds by default. (in days) | [optional]
+**display_expiration_timer** | **mixed** | The time left that will trigger the countdown timer on the checkout page to be shown. The value will be rounded down to a minute. | [optional]
+**monitoring_expiration** | **mixed** | The time after which an invoice which has been paid but not confirmed will be considered invalid. The value will be rounded down to a minute. | [optional]
+**speed_policy** | [**\OpenAPI\Client\Model\SpeedPolicy**](SpeedPolicy.md) |  | [optional]
+**lightning_description_template** | **string** | The BOLT11 description of the lightning invoice in the checkout. You can use placeholders &#39;{StoreName}&#39;, &#39;{ItemDescription}&#39; and &#39;{OrderId}&#39;. | [optional]
+**payment_tolerance** | **float** | Consider an invoice fully paid, even if the payment is missing &#39;x&#39; % of the full amount. | [optional] [default to 0.0]
+**archived** | **bool** | If true, the store does not appear in the stores list by default. | [optional] [default to false]
+**anyone_can_create_invoice** | **bool** | If true, then no authentication is needed to create invoices on this store. | [optional] [default to false]
+**receipt** | [**\OpenAPI\Client\Model\ReceiptOptions**](ReceiptOptions.md) | Additional settings to customize the public receipt | [optional]
+**lightning_amount_in_satoshi** | **bool** | If true, lightning payment methods show amount in satoshi in the checkout page. | [optional] [default to false]
+**lightning_private_route_hints** | **bool** | Should private route hints be included in the lightning payment of the checkout page. | [optional] [default to false]
+**on_chain_with_ln_invoice_fallback** | **bool** | Unify on-chain and lightning payment URL. | [optional] [default to false]
+**redirect_automatically** | **bool** | After successfull payment, should the checkout page redirect the user automatically to the redirect URL of the invoice? | [optional] [default to false]
+**show_recommended_fee** | **bool** |  | [optional] [default to true]
+**recommended_fee_block_target** | **int** | The fee rate recommendation in the checkout page for the on-chain payment to be confirmed after &#39;x&#39; blocks. | [optional] [default to 1]
+**default_lang** | **string** | The default language to use in the checkout page. (The different translations available are listed [here](https://github.com/btcpayserver/btcpayserver/tree/master/BTCPayServer/wwwroot/locales) | [optional] [default to 'en']
+**html_title** | **string** | The HTML title of the checkout page (when you over the tab in your browser) | [optional]
+**network_fee_mode** | [**\OpenAPI\Client\Model\NetworkFeeMode**](NetworkFeeMode.md) |  | [optional]
+**pay_join_enabled** | **bool** | If true, payjoin will be proposed in the checkout page if possible. ([More information](https://docs.btcpayserver.org/Payjoin/)) | [optional] [default to false]
+**auto_detect_language** | **bool** | If true, the language on the checkout page will adapt to the language defined by the user&#39;s browser settings | [optional] [default to false]
+**show_pay_in_wallet_button** | **bool** | If true, the \&quot;Pay in wallet\&quot; button will be shown on the checkout page (Checkout V2) | [optional] [default to true]
+**show_store_header** | **bool** | If true, the store header will be shown on the checkout page (Checkout V2) | [optional] [default to true]
+**celebrate_payment** | **bool** | If true, payments on the checkout page will be celebrated with confetti (Checkout V2) | [optional] [default to true]
+**play_sound_on_payment** | **bool** | If true, sounds on the checkout page will be enabled (Checkout V2) | [optional] [default to false]
+**lazy_payment_methods** | **bool** | If true, payment methods are enabled individually upon user interaction in the invoice | [optional] [default to false]
+**default_payment_method** | **string** | Payment method IDs. Available payment method IDs for Bitcoin are:   - &#x60;\&quot;BTC-CHAIN\&quot;&#x60;: Onchain    -&#x60;\&quot;BTC-LN\&quot;&#x60;: Lightning    - &#x60;\&quot;BTC-LNURL\&quot;&#x60;: LNURL | [optional]
+**payment_method_criteria** | [**\OpenAPI\Client\Model\PaymentMethodCriteriaData[]**](PaymentMethodCriteriaData.md) | The criteria required to activate specific payment methods. | [optional]
+**id** | **string** | The id of the store | [optional]
+
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
